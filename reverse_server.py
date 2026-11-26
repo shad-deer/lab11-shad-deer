@@ -26,7 +26,10 @@ def main():
             # TODO: send the message back REVERSED. `data` is bytes, e.g. b"hello".
             #   Turn it into text, reverse it, and send the reversed text back with
             #   conn.sendall(...). Example: "hello" -> "olleh".
-            pass
+            text = data.decode()
+            reversed_text = text[::-1]
+            print(f"Recieved: {text!r} -> Sending: {reversed_text!r}")
+            conn.sendall(reversed_text.encode())
 
 
 if __name__ == "__main__":
